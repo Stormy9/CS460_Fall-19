@@ -1,0 +1,48 @@
+﻿@model CS460_Hwk08.Models.Athlete
+
+@{
+    ViewBag.Title = "athlete details";
+}
+
+<h2>athlete details</h2>
+
+<div>
+    <!---------------------------------------------------------------------------------->
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AthleteName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AthleteName)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.TeamName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.TeamName)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach.CoachName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Coach.CoachName)
+        </dd>
+        <!------------------------------------------------------------------------------>
+    </dl>
+</div>
+<!-------------------------------------------------------------------------------------->
+<p>
+    @Html.ActionLink("edit", "Edit", new { id = Model.AthleteID }) |
+    @Html.ActionLink("back to all athletes", "Index")
+</p>
+<!-------------------------------------------------------------------------------------->

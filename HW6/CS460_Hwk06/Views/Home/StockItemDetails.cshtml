@@ -1,0 +1,128 @@
+﻿@model CS460_Hwk06.Models.StockItem
+
+
+@{
+    ViewBag.Title = "Stock Item Details";
+}
+
+
+<div class="row" style="margin-bottom: 9px;">
+    <div class="col-md-6">
+        <h2 style="text-align: left;">@ViewBag.Title</h2>
+    </div>
+
+    <div class="col-md-6">
+        <div style="text-align: right">
+            <div class="fakeButton">
+                @Html.ActionLink("do a new search", "Index", new { style = "color:white;" })
+            </div>
+        </div>
+    </div>
+
+</div><!-- end of row div -->
+<hr />
+
+
+<div class="row">
+    <div class="col-md-7">
+        <!-- left column -->
+        <div class="detail_card">
+            <dl class="dl-horizontal">
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StockItemName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.StockItemName)
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Size)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Size)
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RecommendedRetailPrice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RecommendedRetailPrice)
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnitPrice)
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TypicalWeightPerUnit)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TypicalWeightPerUnit)
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LeadTimeDays)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LeadTimeDays)
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ValidFrom)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ValidFrom)
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    Country of Origin:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CustomFields).ToString().Replace("{ &quot;CountryOfManufacture&quot;: &quot;", "").Split('&')[0]
+                </dd>
+                <!------------------------------------------------------------------------------>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tags)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Tags).ToString().Replace("[&quot;", "").Replace("&quot;]", "").Replace("&quot;", "")
+                </dd>
+
+                <!------------------------------------------------------------------------------>
+            </dl>
+        </div>
+    </div> <!-- end left column -->
+
+
+    <div class="col-md-5">
+        <!-- right column -->
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Photo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Photo)
+                <img src="https://stormy9.github.io/exp/cute_smiley.png" />
+            </dd>
+        </dl>
+    </div> <!-- end right column -->
+
+
+</div> <!-- end row -->
+<!-------------------------------------------------------------------------------------->
+<p>
+    <!-- trying to figure out a button, that mimics the browser 'back' button.....    -->
+    @*@Html.ActionLink("Back to List", "Index")   |
+        @Html.ActionLink("Back to previous page", null, null, null, new { href = Request.UrlReferrer })   |
+        <input type="button" value="GO BACK" class="btn btn-primary"
+               onclick="location.href='@Request.UrlReferrer'" />   |*@
+
+    <!--   from Joker-the-Asshole ..... be sure to see stuff about POST's   -->
+    <!-- https://stackoverflow.com/questions/815229/how-do-i-redirect-to-the-previous-action-in-asp-net-mvc -->
+
+</p>
+<!-------------------------------------------------------------------------------------->

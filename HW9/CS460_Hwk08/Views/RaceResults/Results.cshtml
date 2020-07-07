@@ -1,0 +1,64 @@
+﻿@model CS460_Hwk08.Models.RaceResult
+
+@{
+    ViewBag.Title = "see all races for the selected athlete";
+}
+<!-- FOR FEATURE#2 -->
+<!-------------------------------------------------------------------------------------->
+
+<h2>see all races for an athlete</h2>
+<h4> get listing of an athlete's finish times in all races, by meet, date, &amp; event </h4>
+
+<!-------------------------------------------------------------------------------------->
+<!-- adapted from Hwk_06 'Index' page... 
+        that went to 'StockItem' 'Home' page to display search results -->
+@using (Html.BeginForm("ResultsList", "RaceResults", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()                <!-- do we need this for this?? -->
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AthleteID, "athlete", 
+                            htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <!-- did not work changing "AthleteID" to "AthleteName" -->
+            <!-- but we don't *need* the *name*, anyways.....       -->
+            <div class="col-md-10">
+                @Html.DropDownList("AthleteID", null, "athlete name", 
+                                    htmlAttributes: new { @class = "form-control", 
+                                                        placeholder = "athlete name",
+                                                        required = "required"})
+
+                @Html.ValidationMessageFor(model => model.AthleteID, "", 
+                                                        new { @class = "text-danger" })
+            </div>
+        </div>
+        <!------------------------------------------------------------------------------>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="get meet results!" class="btn btn-default" />
+            </div>
+        </div>
+
+        <!------------------------------------------------------------------------------>
+    </div> <!-- end div class form-horizontal -->
+}   <!-- end {} for 'using (Html.BeginForm()) -->
+<!-------------------------------------------------------------------------------------->
+
+
+<div>
+    @Html.ActionLink("back to all meet results", "Index")
+</div>
+
+<!-------------------------------------------------------------------------------------->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<!-------------------------------------------------------------------------------------->

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Stormy9 - CS460 - Homework 7</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- my 'main.js' file does not have any effect no matter where you put it -->
+    <!-- put that + 'Scripts.Render("~/bundles/jquery")' up top from stackoverflow -->
+    <!-- still don't work ..... top, bottom, whatever ..... like it's not even there -->
+    <!-- didn't even work when I pasted whole script directly here, in script tags! -->
+    <!-- so put it back at the bottom, since that's usually where JS scripts are put -->
+
+
+</head>
+
+<body>
+    <!-- took out all the nav bar stuff -->
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <footer>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - stormy9's github repos</p>
+        </footer>
+
+    </div>
+
+    <!-- so both these (was trying 'main.js' a couple ways) get into source of page -->
+    <!-- can see them when you load/run the page and right-click 'View page source' -->
+    @*@Scripts.Render("~/Scripts/main.js")*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

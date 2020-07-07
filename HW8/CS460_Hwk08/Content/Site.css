@@ -1,0 +1,100 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*=====================================================================================*/
+/* ------------------------------- my stuff ------------------------------------------*/
+body {
+    background-color: #39ac73;
+    color: black;
+}
+
+.jumbotron {
+    background-color: #66cc99;
+    border: 1px solid #66cc99;
+    border-radius: 15px;
+}
+/*-------------------------------------------------------------------*/
+a:link {
+    color: #00004d;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00004d;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000099;
+    text-decoration: none;
+}
+
+a:active {
+    color: #000099;
+    text-decoration: none;
+}
+/*-------------------------------------------------------------------*/
+.my_buttons {
+    border: 1px solid #133926;
+    border-radius: 5px;
+}
+
+.my_add {
+    margin-bottom: 9px;
+    border: 1px solid #133926;
+    border-radius: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #66cc99;
+}
+
+.my_foot {
+    margin-top: 108px;
+}
+/*-------------------------------------------------------------------------------------*/
+/* enclose the div you want to center w/a parent div (like wrapper or container)
+      * set 'text-align: center' to parent element
+         * then set the inside div to 'display: inline-block'
+
+    (i always forget how to do this at first for some reason)
+--------------------------------------------------------------------------------------*/
+#stats_button {
+
+}
+
+#graph_container {
+    text-align: center;
+}
+
+#athlete_event_graph {
+    border: dotted 1px black;
+
+    display: inline-block;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    padding: 9px;
+}
+/*-------------------------------------------------------------------------------------*/

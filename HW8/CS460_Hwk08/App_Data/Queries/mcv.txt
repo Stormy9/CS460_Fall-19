@@ -1,0 +1,86 @@
+﻿REMEMBER THESE STEPS.....
+
+1)  create your db's first => `up.sql`... `seed.sql`... `down.sql`
+
+=========================================================================================
+2)  remember db's go in `App_Data` -- along with the `.sql` files + any Queries
+
+=========================================================================================
+3)  create your db from MS SQL Server Management Studio if need be
+    
+	or => right-click 'App_Data' -> Add -> New Item -> Data -> SQL Server Database
+
+=========================================================================================
+4)  the connection is (LocalDB)\MSSQLLocalDB
+	click the little connection plug-looking thingie... pick your `.mdf` file from the drop-down
+
+=========================================================================================
+5)  install Entity Framework => Tools -> NuGet Package Manager -> Manage NuGet Packages For Solution
+       just the 'plain' one at top of list -> install it to *your* project
+	      (can confirm it's there in 'References' folder)
+
+=========================================================================================
+6)  once db is up & going -- QUERY THE TABLES really quick to make sure all is well
+
+=========================================================================================
+7)  MODELS => right-click `Models` folder
+			  'New Item -> ADO.NET Entity Data Model'
+			     * name this file something ending in 'Context' -> 'HomeworkContext.cs'
+
+			  'CodeFirst from Database' -> pull in your db
+										   connection string thing
+										   pick your tables
+					it makes all your model classes for you, based on your db
+
+			  add your DAL (top level folder in project)
+			     * move your 'WhatverContext' file there
+				 * check/edit 'namespace' and 'using' stuff up-top
+			  
+			  THEN BUILD IT! -- don't run, just build (compile)
+				 nothing else after this will work if you don't build NOW
+
+=========================================================================================
+8)  CONTROLLERS => right-click 'Controller' folder -> Add Controller -> w/Views using Entity Framework
+				   you can also right-click on a Model Class -> 'Add Controller'
+
+				   add a controller for each model class (aka, each db table)
+				      * like one at a time -> name them 'WhateverController'
+					  * pick correct 'Model Class' + 'Data Context Class' (from drop-downs)
+					  * all three tick-boxes should be ticked
+					  * give Controllers plural names -> DogsController.cs
+				   
+				   be sure 'using' stuff is up-top (using your models)
+				     like: `using my_project.Models;`
+
+=========================================================================================
+9)  VIEWS => will be created when you make your Controllers -> based off your Models (db tables)
+			 lots of auto-generated functionality => customize that
+
+=========================================================================================
+==> remember if you make a change in a Controller (or Model) you HAVE TO DO CTRL+F5
+	   or else you'll get errors when you check in the browser
+	     if you just change a View (or css) you can just CTRL+F5 in the browser
+		   (hard refresh)
+
+==> remember data annotations in models & controllers (and the 'using' statements)
+
+==> all of this takes care of your PK's + FK's and relations and all that
+
+==> the css is -> Content/Site.css
+
+==> the common layout (navbars, footer, etc) is -> Views/Shared/_Layout.cshtml
+
+==> 'DbSet' is a type -> "think of it as a table"... can go thru it & do Queries
+	('set' as in a set of things -- not the other kind of 'set')
+	   the Web.config (the root one) relates to DbSet
+
+==> GIT:
+	branch:
+	git branch <branch_name>
+	git checkout <branch_name>
+	git push -u origin <branch_name>	(adds remote version of branch)
+
+	merge:
+	git checkout master
+	git merge --no-ff <branch_name>
+=========================================================================================

@@ -1,0 +1,78 @@
+﻿<!--   all of the <head> stuff is in _Layout.cshtml! how cool is that?  -->
+
+<div class="container">
+    <div class="row">
+        <h2>@ViewBag.Title</h2>
+        <h3>@ViewBag.Message</h3>
+    </div>
+
+    <div class="row">
+        <!--   here is our form -- this column is just for the form  -->
+        <div class="col-md-4">
+            <form action="/home/RGBColor" method="get">
+                <div class="form-group">
+                    <div class="input-group rgb_input_group">
+                        <span class="input-group-addon my_label">R</span>
+                        <input class="form-control my_input" type="number"
+                               min="0" max="255" id="red" name="red" required 
+                               placeholder="red value (0-255)" />
+                    </div>
+                    <div class="input-group rgb_input_group">
+                        <span class="input-group-addon my_label">G</span>
+                        <input class="form-control my_input" type="number"
+                               min="0" max="255" id="green" name="green" required 
+                               placeholder="green value (0-255)" />
+                    </div>
+                    <div class="input-group rgb_input_group">
+                        <span class="input-group-addon my_label">B</span>
+                        <input class="form-control my_input" type="number"
+                               min="0" max="255" id="blue" name="blue" required 
+                               placeholder="blue value (0-255)" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="rgb_button">
+                        get color!
+                    </button>
+                </div> <!-- end class form-group -->
+            </form>
+        </div> <!-- end col-md-4 -->
+
+        <div class="col-md-2">
+            <!-- empty/spacer column -->
+        </div>
+
+        <div class="col-md-4">
+            <!-- empty div to be whatever color is entered -->
+            <!-- color-correctness confirmed by W3Schools Color Picker -->
+            <!-- i wish there was a "neater" way to do this, besides putting CSS here -->
+            <!-- but I guess it's not *that* messy.....   -->
+
+            <div class="rgb_color_result"
+                 style="background-color: rgb(@Request["red"],@Request["green"],@Request["blue"])">
+
+            </div> <!-- end color-square div -->
+
+            <div class="rgb_text_results">
+                <p>
+                    @ViewBag.RGB <br />
+                    <span id="math_fun">@ViewBag.Math</span>
+                </p>
+                <p>
+                    @ViewBag.Hex <br />
+                </p>
+            </div>
+        </div>
+
+    </div> <!-- end row -->
+
+    <!-- 2nd row -->
+    <div class="row">
+        <div style="height: 72px;">
+            <!-- just a vertical spacer -- and a test spot! -->
+            <!--    note the ViewBags had the `at` there, of course
+            <p>ViewBag.Reply</p>
+            <p>ViewBag.Math</p>
+            -->
+        </div>
+    </div> <!-- end 2nd row -->
+
+</div> <!-- end container -->

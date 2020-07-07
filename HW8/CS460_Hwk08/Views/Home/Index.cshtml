@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "home - track team tracker";
+}
+
+<div class="jumbotron">
+    <h1>the track team tracker</h1>
+    <p class="lead">keep track of all your student-athletes, teams & coaches, meets, 
+                plus finish times for all events!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>student-athletes</h2>
+        <p>
+            the <b>track team tracker</b> will show you stats for each athlete 
+                on any team in the district!
+        </p>
+
+        <div class="btn btn-basic my_buttons">
+            <b>@Html.ActionLink("current athletes ", "Index", "Athletes")></b>
+        </div>
+
+        <div class="btn btn-basic my_buttons">
+            <b>@Html.ActionLink("see all races for an athlete ", "Results", "RaceResults")</b>
+        </div>
+
+        <div class="btn btn-basic my_buttons">
+            <b>@Html.ActionLink("check athlete stats", "Stats", "RaceResults")</b>
+        </div>
+
+    </div> <!-- end of left column-->
+
+
+    <div class="col-md-6">
+        <h2>track meets</h2>
+        <p>
+            see results for all track meets -- all students, all events + finish times
+            <br />
+            add new meet locations + add new meet results
+        </p>
+        <div class="btn btn-basic my_buttons">
+            <b>@Html.ActionLink("all meet results ", "Index", "RaceResults")></b>
+        </div>
+
+        <div class="btn btn-basic my_buttons">
+            <b>@Html.ActionLink("add meet location ", "Create", "Locations")></b>
+        </div>
+
+        <div class="btn btn-basic my_buttons">
+            <b>@Html.ActionLink("enter meet results ", "Create", "RaceResults")></b>
+        </div>
+
+    </div> <!-- end of right column -->
+</div>

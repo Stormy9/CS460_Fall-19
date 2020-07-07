@@ -1,0 +1,76 @@
+﻿@model CS460_Hwk08.Models.RaceResult
+
+@{
+    ViewBag.Title = "meet results details";
+}
+
+<h2>meet results details</h2>
+
+<div>
+    <hr />
+    <!---------------------------------------------------------------------------------->
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.AthleteName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.AthleteName)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.TeamName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.TeamName)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach.CoachName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Coach.CoachName)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.MeetDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MeetDate)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.EventType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Event.EventType)
+        </dd>
+        <!------------------------------------------------------------------------------>
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FinishTime)
+        </dd>
+        <!------------------------------------------------------------------------------>
+    </dl>
+</div>
+<!-------------------------------------------------------------------------------------->
+<p>
+    @Html.ActionLink("edit meet result", "Edit", new { id = Model.RaceResultID }) |
+    @Html.ActionLink("back to meet results", "Index")
+</p>
+<!-------------------------------------------------------------------------------------->

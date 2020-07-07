@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Wide-World Importers</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+
+
+    <body>
+        <div class="container-fluid page-header fixed-top media-heading myhead">
+            Wide-World Importers
+        </div>
+
+
+        <div class="container body-content">
+            @RenderBody()
+            
+            <footer>
+                <p>
+                    &copy; @DateTime.Now.Year - Western Oregon University &gt;
+                    Computer Science &gt; CS460: Software Engineering I &gt;
+                    Homework 6 &gt; stormy &gt; for Wide World Importers
+                </p>
+            </footer>
+        </div>
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+
+
+</html>

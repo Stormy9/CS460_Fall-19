@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CS460_Hwk06.Models.StockItem>
+
+
+@{
+    ViewBag.Title = "search stock items";
+}
+<!-- not sure if the typing up-top should be like in Hwk5..... -->
+<!--   i.e. (at)model CS460_Hwk06.Models.StockItem   -->
+<!--       or, with the IEnumerable thing?  difference/explanation? (i missed that?) -->
+<!-- do we need `IEnumerable` on just this search page? it makes sense on page w/List -->
+
+
+<div class="row">
+    <div class="col-md-2">
+        <!-- empty column on left -->
+    </div>
+
+    <div class="col-md-8" id="welcome">
+        <p>
+            the premier distributor of fun around the world!
+        </p>
+        <p>
+            search our stock items.....
+        </p>
+    </div>
+
+    <div class="col-md-2">
+        <!-- empty colum on right -->
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-2">
+        <!-- empty column on left -->
+    </div>
+
+    <div class="col-md-8 mysearch">
+        @using (Html.BeginForm("StockItem", "Home", FormMethod.Post))
+        {
+            @Html.TextBox("search")
+                <input type="submit" value="search!" class="btn-danger" id="my_search_button" />
+        }
+    </div>
+
+    <div class="col-md-2">
+        <!-- empty colum on right -->
+    </div>
+
+</div><!-- end of row div -->
+
+
+
+<!-- i gotta say it somewhere.....
+     this database??  it's really crappy-seeming, so far as organization!   [=     -->

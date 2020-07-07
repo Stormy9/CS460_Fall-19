@@ -1,0 +1,124 @@
+﻿<!--   all of the <head> stuff is in _Layout.cshtml! how cool is that?  -->
+
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <h4 class="interpol_inst">@ViewBag.Instructions_a</h4>
+    <h4 class="interpol_inst">@ViewBag.Instructions_b</h4>
+
+    <div class="row">
+        <!--   here is our form -- this column is just for the form  -->
+        <!-- we have to do this form with Razor HTML helpers, for all form inputs -->
+        <div class="col-md-4">
+            @using (Html.BeginForm("Create", "ColorInterpolator", FormMethod.Post))
+            {
+            <div class="form-group">
+                <!-- class="interpol_group" has to be here, not in Html.Textbox -->
+                <!-- but it's not working here, either.....   =[   -->
+                <!-- the un-named `new { }` is an "anonymous object" in C# -->
+                <!-- have to do `at-sign` before `class` b/c it's reserved C# word -->
+                <div class="input-group interpol_group">
+                    @Html.Label("color_one", "First Color")
+                    @Html.TextBox("color_one", null,
+                                    new { @class = "form-control", type = "text",
+                                        min = "1", max = "255", required = "true",
+                                        id = "color_one", name = "color_one",
+                                        placeholder = "#ff2e57",
+                                        pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" } )
+                </div>
+
+                <div class="input-group interpol_group">
+                    @Html.Label("color_two", "Second Color")
+                    @Html.TextBox("color_two", null,
+                                    new { @class = "form-control", type = "text",
+                                        min = "1", max = "255", required="true",
+                                        id = "color_two", name = "color_two",
+                                        placeholder="#99ff66",
+                                        pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" } )
+                </div>
+
+                <div class="input-group interpol_group">
+                    @Html.Label("number_colors", "Number of Colors")
+                    @Html.TextBox("number_colors", null,
+                                    new { @class = "form-control", type = "number",
+                                            id = "number_colors", name = "number_colors",
+                                            required = "true" } )
+                </div>
+                <!--   is that really any easier, or that much of a "help"?   -->
+
+                <button type="submit" class="btn btn-primary">let's interpolate!</button>
+
+            </div> <!-- end form-group div -->
+            }
+            </div> <!-- end col-md-4 -->
+
+
+        <div class="col-md-2">
+            <!-- empty/spacer column -->
+        </div>
+
+        <div class="col-md-4">
+            <!-- empty div-column to roll out the color interpolation -->
+
+            <div class="interpolating_result">
+                <!-- empty div where the fruit of interpolating can be -->
+
+                <!-- we have to do an `if` -- if it all worked, put it here     -->
+                <!--        if it didn't, don't put anything here!              -->
+                <!--                how to determine validity???                -->
+                <!-- could check if `ViewBag.ColorList` isNull.....             -->
+                <!-- but it won't even exist yet -- so, better to use a 'flag'  -->
+                <!-- aka `ViewBag.Okay` in the controller Action method         -->
+                @if (ViewBag.Okay == true)
+                {
+                    // does `null` == true?  it is false.  haha!
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <!-- table headings: -->
+                            <th>Color One:</th>
+                            <th>Color Two:</th>
+                            <th>How Many Colors?</th>
+                        </tr>
+                        @foreach (var color in (IEnumerable<CS460_Hwk04.Controllers.ColorInterpolatorController.Colors>)ViewBag.ColorList)
+                        {
+                            <tr>
+                                <!-- these are dynamic types -- compiler is clueless  -->
+                                <!-- best way is to use a 'strongly-typed view' (duh) -->
+                                <!-- but we don't got time for that so we're casting  -->
+                                <!-- (".....to what we think it is.....")             -->
+                                <!-- the casting is done up in the () after `foreach` -->
+                                <!-- and it doesn't know what 'Colors' is, either     -->
+                                <!-- can put a `using` statement above (above what?)  -->
+                                <!-- but we're gonna give it 'full type information'  -->
+                                <!-- namespace.controllers.Controllers.type   ^^^^^   -->
+                                <td style="background-color: @ViewBag.ColorOne">@color.color_one</td>
+                                <td style="background-color: @ViewBag.ColorTwo">@color.color_two</td>
+                                <td>@color.number_colors</td>
+                            </tr>
+                        }
+                        <!-- headers on table should be: 'HTML Hex' & 'Color' -->
+                    </table>
+                    <p>note: in this initial test version, there will always be 
+                        items 0 thru 9, no matter what you put in over there for 
+                        "number of colors"!</p>
+
+                    <p>at least this shows that we're pulling in the post data/input,
+                        and doing *something* with it!   [= </p>
+                }
+
+            </div> <!-- end color-interpolator-results div -->
+
+        </div>
+
+    </div> <!-- end row -->
+    <!-- 2nd row -->
+    <div class="row">
+        <div style="height: 72px;">
+            <!-- just a vertical spacer -- and a test spot! -->
+            <!--    note the ViewBags had the `at` there, of course
+        <p>ViewBag.Reply</p>
+        <p>ViewBag.Math</p>
+        -->
+        </div>
+    </div> <!-- end 2nd row -->
+</div> <!-- end container -->

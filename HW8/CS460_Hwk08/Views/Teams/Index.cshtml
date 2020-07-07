@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CS460_Hwk08.Models.Team>
+
+@{
+    ViewBag.Title = "track teams";
+}
+
+<h2>track teams</h2>
+
+<div class=" btn my_add">
+    <b>@Html.ActionLink("add a new team", "Create")</b>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Coach.CoachName)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Coach.CoachName)
+            </td>
+
+            <td>
+                @Html.ActionLink("details", "Details", new { id = item.TeamID }) |
+                @Html.ActionLink("edit", "Edit", new { id = item.TeamID }) |
+                @Html.ActionLink("delete", "Delete", new { id = item.TeamID })
+            </td>
+        </tr>
+}
+</table>

@@ -1,0 +1,48 @@
+﻿@model CS460_Hwk08.Models.Coach
+
+@{
+    ViewBag.Title = "add a new coach";
+}
+
+<h2>add a new coach</h2>
+
+<!-------------------------------------------------------------------------------------->
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!---------------------------------------------------------------------------------->
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CoachName, htmlAttributes: 
+                                            new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CoachName, new { htmlAttributes = 
+                new { @class = "form-control", placeholder = "coach name", required = "required" } })
+
+                @Html.ValidationMessageFor(model => model.CoachName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="save" class="btn btn-default" />
+            </div>
+        </div>
+        <!------------------------------------------------------------------------------>
+    </div>
+}
+<!-------------------------------------------------------------------------------------->
+<div>
+    @Html.ActionLink("back to all coaches", "Index")
+</div>
+<!-------------------------------------------------------------------------------------->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<!-------------------------------------------------------------------------------------->

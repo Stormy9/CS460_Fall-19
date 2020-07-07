@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CS460_Hwk05.Models.Homework>
+
+@{
+    ViewBag.Title = "my homework list:";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div style="text-align: center; margin-bottom: 18px;">
+    @Html.ActionLink("add a new homework assignment", "Create")
+</div>
+<table class="table my_table" >
+    <tr>
+        <!-- table headers for homework assignment list -->
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assignment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th></th>
+    </tr>
+
+    <!-- table rows for each homework assignment -->
+        <!-- adapted this syntax from googling/StackOverflow -->
+            <!-- learn more + practice more w/this syntax (lambda expressions) -->
+        <!-- note it's a lot like SQL ..... just slightly different   =]   -->
+@foreach (var item in Model.OrderBy(m => m.DueDate).ThenBy(m => m.DueTime)) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assignment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+

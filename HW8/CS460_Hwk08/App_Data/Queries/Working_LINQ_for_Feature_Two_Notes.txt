@@ -1,0 +1,34 @@
+﻿// SEE => https://repl.it/@stormy9/CS460Hwk08Cpractice
+//    for fiddling with putting LINQ stuff in C# methods & stuff.....
+//
+// NEW-AND-IMPROVED VERSION OF QUERY 5..... (from Linq-Pad)
+//    no JOIN'ing of tables required!!!!!
+//      just "drill down" in the RR table to get the pieces you need/want!
+//         puts the name over to the side, instead of repeating it every row.....
+//			  at least in LINQ-Pad!
+//
+from rr in RaceResults
+	where rr.Athlete.AthleteName == "Taylor Pugh"
+
+// THIS is the order the instructions ASK for.....
+//orderby rr.MeetDate, rr.Event.EventType descending
+
+		// but THIS is what matches the example in the lab sheet!
+		orderby rr.Event.EventType ascending, rr.MeetDate
+
+select new {	
+	// WITHOUT 'orderby' commented out, i get stupid error.....
+	// WITH 'orderby' commented out, it runs fine -- just in whatever-order.....
+	// AHA!!!!!   'orderby' works as it should when it's up there..... yay!
+	
+	rr.Athlete.AthleteName,
+	
+	// OMG -- just use new alias here, and it all f'ing works!  yay!
+	match_details = from md in RaceResults
+		select new {
+			rr.MeetDate, rr.Event.EventType, rr.Location.LocationName, rr.FinishTime
+		}
+}
+// remember double-quotes & double-equals!
+// from Hwk_06:
+// stockItems = stockItems.Where(si => si.StockItemName.Contains(search));

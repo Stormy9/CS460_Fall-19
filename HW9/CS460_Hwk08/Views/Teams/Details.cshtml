@@ -1,0 +1,36 @@
+﻿@model CS460_Hwk08.Models.Team
+
+@{
+    ViewBag.Title = "team details";
+}
+
+<h2>team details</h2>
+
+<div>
+    <hr />
+    <!---------------------------------------------------------------------------------->
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach.CoachName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach.CoachName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamName)
+        </dd>
+
+    </dl>
+</div>
+<!-------------------------------------------------------------------------------------->
+<p>
+    @Html.ActionLink("edit", "Edit", new { id = Model.TeamID }) |
+    @Html.ActionLink("back to all teams", "Index")
+</p>
+<!-------------------------------------------------------------------------------------->

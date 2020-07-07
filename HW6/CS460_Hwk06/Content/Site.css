@@ -1,0 +1,90 @@
+﻿body {
+    /*padding-top: 50px;*/ /* took out to eliminate white stripe above header */
+    padding-bottom: 27px;
+    background-color: #f2f2f2;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+select {
+    max-width: 280px;
+    /* took out textarea -- but did not help with my input box width! */
+    /* oh -- maybe because it's an input..... ha!  */
+    /* no, the search box is *still* small.....   */
+}
+
+/*=====================================================================================*/
+/* ------------------------------------ my styles ------------------------------------*/
+.myhead {
+    margin-top: 0;
+    padding-top: 0;
+    /* taking out the padding-top on the body, is what got rid of the white stripe */
+    /* above the header! */
+    background-color: #630063;
+    color: #f2f2f2;
+    font-size: 72px;
+    text-align: center;
+}
+
+#welcome {
+    font-size: 21px;
+    color: #630063;
+}
+
+input {
+    width: 80%;
+    padding: 5px;
+    /* okay, so *this* worked, but a little too well.....     */
+    /* it got the red search button, too!     */
+}
+
+#my_search_button {
+    width: 10%
+}
+
+footer {
+    margin-top: 108px;
+    padding-top: 9px;
+    color: #727272;
+    border-top: 1px solid #630063;
+}
+
+.mysearch {
+    margin-top: 36px;
+    padding: 9px;
+}
+
+.fakeButton {
+    /* so, this doesn't apply AT ALL */
+    /* okay, so it did with a hard refresh */
+    display: inline-block;
+    width: 180px;
+    font-size: 18px;
+    border: 1px solid #630063;
+    border-radius: 18px;
+    padding: 5px;
+    background-color: #cccccc;
+    color: white;
+    text-align: center;
+    margin-top: 13px;
+}
+
+.detail_card {
+    width: 90%;
+    background-color: #cccccc;
+    padding: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 9px;
+}

@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "list stormy9's github repos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- am seriously lost about how to do *this*, with Razor..... -->
+
+<div id="error_msg_spot"></div>
+<div id="are_things_returning_right"></div>
+
+<div id="top_card">
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="five"></div>
+</div>
+
+<div id="repos_card">
+    <div id="repo_list_spot"></div>
+</div>
+
+<div id="commit_list_spot">
+    <hr>
+    <table id="commit_list_table">
+        <tr>
+            <th> Repo </th>
+            <th> SHA </th>
+            <th> Timestamp </th>
+            <th> Committer </th>
+            <th> Commit Message </th>
+        </tr>
+        <!-- my jQuery/AJAX is *supposed* to build/append the    -->
+        <!-- table rows showing the commits for the clicked-upon -->
+        <!-- repo..... and it DOES..... just not *here*.....     -->
+        <!-- but in a 'regular' page it does!                    -->
+        <!-- but then i am pretty lost how to go about this in   -->
+        <!-- the MVC/C# style.....                               -->
+        <!-- i finally got the idea that we're making our very   -->
+        <!-- own mini-API type thing in here, from the JSON data -->
+        <!-- we GET from the GitHub API?????                     -->
+        <!-- and then it's saved..... where?????  in a model???  -->
+        <!-- in our 'main.js' file???  where???                  -->
+        <!-- i'm not a *complete* idiot, but am lost on this     -->
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+}

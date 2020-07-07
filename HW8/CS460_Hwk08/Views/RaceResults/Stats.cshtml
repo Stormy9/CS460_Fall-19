@@ -1,0 +1,112 @@
+﻿@model CS460_Hwk08.Models.RaceResult
+
+@{
+    ViewBag.Title = "get stats for an athlete";
+}
+<!-- FOR FEATURE #3 -> GRAPH -->
+<!-------------------------------------------------------------------------------------->
+
+<h2> get stats for an athlete </h2>
+<h4> see all finish times, by event, for the selected athlete -- in graph form </h4>
+
+<!-------------------------------------------------------------------------------------->
+@using (Html.BeginForm("Stats", "RaceResults", FormMethod.Get))
+{
+    <!-- if you put '"Stats", "RaceResults", FormMethod.Get' in the (),               -->
+    <!--     you get the input values as Request objects you can put in the ViewBag.. -->
+    <!--     and reflect correctly in the 'ViewBag' div..... -->
+    <!--        BUT..... you have to do button type="submit" for that to work..... -->
+    <!--           and then it won't do the jQuery thing..... -->
+    <!--                                                                              -->
+    <!-- with button type="button", the jQuery was firing, -->
+    <!--    and correctly reflecting the input in the 'test-jQ' div..... -->
+    <!--     AND putting the AJAX error message in the 'graph' divv..... -->
+    <!--        okay..... so it *WAS*..... but it's NOT, now.  the fuck?? why???      -->
+    <!--                                                                              -->
+    <!-- i am not sure how to proceed with this..... -->
+    <!-- in order to get the correct values to pass to the Queries in the Controller, -->
+    <!--      you have to pass them through 'GET', TO the Controller..... right??     -->
+    <!--       but if they're not going into the jQuery..... what?                    -->
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AthleteID, "athlete", 
+                            htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.DropDownList("AthleteID", null, "athlete name", 
+                                    htmlAttributes: new { @class = "form-control", 
+                                                          id = "AthID", 
+                                                          placeholder = "athlete name", 
+                                                          required = "required" })
+
+                @Html.ValidationMessageFor(model => model.AthleteID, "", 
+                                                        new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventID, "event", 
+                            htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.DropDownList("EventID", null, "event type", 
+                                            htmlAttributes: new { @class = "form-control", 
+                                                              id = "EvID", 
+                                                              placeholder = "event type",
+                                                              required = "required" })
+
+                @Html.ValidationMessageFor(model => model.EventID, "", 
+                                                          new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="get stats!"
+                       class="btn btn-default" id="stats_button" />
+            </div>
+        </div>
+        <!------------------------------------------------------------------------------>
+    </div> <!-- end div class form-horizontal -->
+}   <!-- end {} for 'using (Html.BeginForm()) -->
+<!-------------------------------------------------------------------------------------->
+
+<div id="graph_container">
+
+    <div id="athlete_event_graph">
+
+    </div>
+
+</div>
+
+<div class="ViewBag">
+    @ViewBag.AthID -- the AthleteID from ViewBag <br />
+    @ViewBag.EvID -- the EventID from ViewBag <br />
+    those ^^^ are Request Objects
+</div>
+
+<div id="test_jQ">
+</div>
+
+<!-------------------------------------------------------------------------------------->
+<div>
+    @Html.ActionLink("back to all meet results", "Index")
+</div>
+
+<!-------------------------------------------------------------------------------------->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+    <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js">
+    </script>
+}
+<!-------------------------------------------------------------------------------------->

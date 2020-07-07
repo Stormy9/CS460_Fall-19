@@ -1,0 +1,78 @@
+﻿/*======================================================================================*/
+/* styling it came with..... */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea    /* take out textarea as a test */
+ {          /* for width of notes text input box */
+    max-width: 280px;
+}
+/*=====================================================================================*/
+/* my added styling..... */
+body {
+    background-color: #333333;
+
+    /* setting `color` here cascades all the way down unless over-ridden */
+    color: #cccccc;
+}
+
+.jumbotron {
+    background-color: #333333;
+}
+
+.my_foot {
+    margin-top: 108px;
+}
+/*-------------------------------------------------------------------*/
+a:link {
+    color: #6666ff;
+    font-weight: bold;
+}
+a:visited {
+    color: #6666ff;             /* so why isn't this working???     */
+    font-weight: bold;          /* so annoying w/bootstrap.....    */
+}                               /* oh yeah -- it just takes a bit */
+a:hover {
+    color: #bb1133;
+    font-weight: bold;
+    text-decoration: none;      /* but will this?  it has a history of not */
+}                               /* it did! */
+/*---------------------------------------------------------------------*/
+tr:nth-child(even) {
+    background-color: rgb(63,63,63);
+}
+
+.my_label {
+    text-align: right;
+}
+
+.my_table {
+    /* table padding does not add space below table for me   [=   */
+    /* padding-bottom: 108px;   */
+    /* margin-bottom did not work, either */
+    /* UNTIL -- I changed selector from `table` to `.my_table` */
+    /*   wait -- it actually worked just changing it to `.table`, too..... */
+    /*margin-bottom: 108px;*/
+}
+
+.bottom_links {
+    margin-top: 27px;
+}

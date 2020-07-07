@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CS460_Hwk08.Models.Coach>
+
+@{
+    ViewBag.Title = "track coaches";
+}
+
+<h2>track coaches</h2>
+
+<div class="btn my_add">
+    <b>@Html.ActionLink("add a new coach", "Create")</b>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CoachName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoachName)
+        </td>
+        <td>
+            @*@Html.ActionLink("details", "Details", new { id = item.CoachID }) |*@
+            @Html.ActionLink("edit", "Edit", new { id = item.CoachID }) |
+            @Html.ActionLink("delete", "Delete", new { id = item.CoachID })
+        </td>
+    </tr>
+}
+
+</table>

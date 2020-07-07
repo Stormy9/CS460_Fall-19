@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="jumbotron">
+        <h1 id="page_header">CS460: Software Engineering I &raquo; Homework 04</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p class="lead">For this assignment, we will be doing a couple of forms + practicing with a little server-side logic... and learning about doing the HTTP methods GET &amp; POST, Query strings, and handling form data -- all from an ASP.NET/MVC5 application! </p>
+        <p class="lead">This is my first time working in this framework, so this ought to be fun!</p>
+        <p><a href="https://wou-cs46x-resources.netlify.com/cs460/hw/hw4" target="_blank" class="btn btn-primary btn-lg">the assignment &raquo;</a></p>
+    </div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Find RGB Colors!</h2>
+        <p>
+            Want to know what a specific RGB color will look like?  How about it's web color format?  Well, here you go!
+        </p>
+        <p>
+            Our little form uses Query Strings to send your form data/input to the server... which reads them via the 'Request' object... the server then does the calculation -- formatting the results to return in a 'View' to you!
+        </p>
+        <p>
+           <button class="btn btn-default no-link-line">@Html.ActionLink("Try it out!", "RGBColor", "Home")</button>
+        </p>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Color Interpolation</h2>
+        <p>
+            Your typical online color-pickers, while useful, are a little too boring... we wanted to do something fun -- and for weirdos!
+        </p>
+        <p>
+            This little form will POST your input data to the server -- and uses parameter binding to make it easy!
+        </p>
+
+        <button class="btn btn-default no-link-line">@Html.ActionLink("Try it out!", "Create", "ColorInterpolator")</button>
+    </div>
+   
+</div>

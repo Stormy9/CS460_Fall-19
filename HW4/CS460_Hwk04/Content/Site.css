@@ -1,0 +1,92 @@
+﻿/* this up to 1st divider came with this */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*=====================================================================================*/
+/*=========   THIS IS WHERE YOUR CUSTOM CSS CAN GO!   =========*/
+#page_header {
+    font-size: 45px;
+    /* this works! */
+}
+.no-link-line {
+    text-decoration: none;
+    /* this ain't working..... */
+}
+.rgb_input_group {
+    margin-bottom: 5px;
+    /* this works but only momentarily! */
+    /* i wanted a slight horizontal spacing between number boxes */
+}
+.my_label {
+    /*display: inline-block;
+    width: 72px;
+    color: blue;    /* just to test stuff */
+    /* this ain't working..... */
+    /* it kinda-works, but only momentarily..... */
+}
+.my_input {
+    /*display: inline-block;
+    /* this ain't working..... */
+    /* it kinda-works, but only momentarily..... */
+}
+#rgb_button {
+    margin-top: 5px;
+    /* again - only works temporarily   =[  */
+}
+/* this is why i don't like bootstrap - you can't make it do what *you* want! */
+/* oh, wait -- you gotta ctrl+F5 again to see it, i think... seems to be working now? */
+/* but not gonna spend time worrying about other particulars anymore   [=     */
+.rgb_color_result {
+    height: 225px;
+    width: 225px;
+    border: 0px solid white;
+    border-radius: 9px;
+    /*background-color: crimson;
+    padding: 9px;*/
+}
+.rgb_text_results {
+    margin-top: 9px;
+    margin-left: 9px;
+    font-weight: bold;
+}
+#math_fun {
+    font-weight: normal;
+    font-style: oblique;
+    font-size: 11px;
+}
+.interpol_inst {
+    /* this doesn't seem to be working at the time -- but, who knows... it may later! */
+    /* since this uses bootstrap you can't totally rely on anything   [=   */
+    /* although sometimes it just takes a while to kick in.....   */
+    /* and what exactly is the `parent element` -- the container div? or body?   */
+    /*font-size: 90%;*/
+    color: rgb(47, 56, 255);
+}
+.interpol_group {
+    margin-bottom: 18px;
+}
+th td {
+    /* and of *course* this isn't working -- why would it?  at least not right away [= */
+    text-align: center;
+}

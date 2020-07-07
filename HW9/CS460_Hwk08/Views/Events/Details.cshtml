@@ -1,0 +1,26 @@
+﻿@model CS460_Hwk08.Models.Event
+
+@{
+    ViewBag.Title = "event details";
+}
+
+<h2>event details</h2>
+
+<div>
+    <!---------------------------------------------------------------------------------->
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EventType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventType)
+        </dd>
+    </dl>
+</div>
+<!-------------------------------------------------------------------------------------->
+<p>
+    @Html.ActionLink("edit event", "Edit", new { id = Model.EventID }) |
+    @Html.ActionLink("back to all events", "Index")
+</p>
+<!-------------------------------------------------------------------------------------->

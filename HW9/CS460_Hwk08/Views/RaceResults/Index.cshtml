@@ -1,0 +1,90 @@
+﻿@model IEnumerable<CS460_Hwk08.Models.RaceResult>
+
+@{
+    ViewBag.Title = "track meet results";
+}
+
+<h2>track meet results</h2>
+
+<!--------------------------------------------------------------------------------------->
+
+<div class="btn my_add">
+    <b>@Html.ActionLink("enter new meets", "Create")</b>
+</div>
+
+<div class="btn my_add">
+    <b>@Html.ActionLink("see all races for an athlete", "Results", "RaceResults")</b>
+</div>
+
+<div class="btn my_add">
+    <b>@Html.ActionLink("check athlete stats", "Stats", "RaceResults")</b>
+</div>
+
+<!-- add buttons/whatever to filter meet results by:  
+                                            Team, Meet(Location)Name, Gender, EventType-->
+
+<!--------------------------------------------------------------------------------------->
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team.TeamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Coach.CoachName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.EventType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Athlete.AthleteName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishTime)
+        </th>
+        <th></th>
+    </tr>
+    <!---------------------------------------------------------------------------------->
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.LocationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeetDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coach.CoachName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.EventType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Athlete.AthleteName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinishTime)
+            </td>
+            <!-------------------------------------------------------------------------->
+            <td>
+                @Html.ActionLink("details", "Details", new { id = item.RaceResultID }) |
+                @Html.ActionLink("edit", "Edit", new { id = item.RaceResultID }) |
+                @Html.ActionLink("delete", "Delete", new { id = item.RaceResultID })
+            </td>
+        </tr>
+}
+</table>

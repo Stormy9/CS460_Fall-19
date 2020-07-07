@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CS460_Hwk08.Models.ViewModels.RaceResultsViewModel>
+
+@{
+    ViewBag.Title = "race results list";
+}
+
+<!-- PART OF FEATURE #2 -->
+
+<h2> race results for AthleteID# => @ViewBag.AthleteID </h2>
+<!-- so... this is passing & returning the correct AthleteID, correctly?  Yes!  -->
+
+<!-- further testing: -->
+<h4 class="test_field"> @ViewBag.AthleteName  </h4>
+<!-- um..... wait..... what the hell is *that*??? -->
+
+
+<p>
+    <!-- go back to page where you pick an athlete to view race results on -->
+    @Html.ActionLink("check another athlete", "Results")
+</p>
+<!-------------------------------------------------------------------------------------->
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AthleteName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishTime)
+        </th>
+        <th></th>
+    </tr>
+    <!---------------------------------------------------------------------------------->
+    <!-- again... used Hwk_06 'StockItem' page/View as example! -->
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AthleteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeetDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishTime)
+                </td>
+                <!-------------------------------------------------------------------------->
+            </tr>
+        } <!-- end foreach -->
+    } <!-- end if(Model != null)-->
+</table>

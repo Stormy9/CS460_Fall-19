@@ -1,0 +1,81 @@
+﻿@model CS460_Hwk05.Models.Homework
+
+@{
+    ViewBag.Title = "delete a homework assignment.....";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>do you really want to delete this assignment???</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DueTime)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dept)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dept)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Course)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Assignment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Assignment)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="margin-left: 180px;">
+            <input type="submit" value="Delete" class="btn btn-basic" /> 
+        </div>
+
+        <div class="bottom_links">
+            @Html.ActionLink("no ... back to my homework list", "Index")
+        </div>
+    }
+</div>

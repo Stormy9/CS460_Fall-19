@@ -1,0 +1,76 @@
+﻿@model CS460_Hwk05.Models.Homework
+
+@{
+    ViewBag.Title = "see all the details of this assignment.....";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DueTime)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dept)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dept)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Course)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Assignment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Assignment)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+</div>
+<p>
+    <div class="bottom_links" style="margin-bottom: 18px; margin-left: 180px;">
+        @Html.ActionLink("edit this assignment", "Edit", new { id = Model.ID })
+    </div>
+
+    <div style="margin-left: 225px;">
+        @Html.ActionLink("no ... go back to my homework list", "Index")
+    </div>
+</p>

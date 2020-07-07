@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CS460_Hwk08.Models.Event>
+
+@{
+    ViewBag.Title = "track events";
+}
+
+<h2>track events</h2>
+
+<div class=" btn my_add">
+    <b>@Html.ActionLink("add a new event", "Create")</b>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventType)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventType)
+            </td>
+            <td>
+                @*@Html.ActionLink("details", "Details", new { id = item.EventID }) |*@
+                @Html.ActionLink("edit", "Edit", new { id = item.EventID }) |
+                @Html.ActionLink("delete", "Delete", new { id = item.EventID })
+            </td>
+        </tr>
+}
+</table>

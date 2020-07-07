@@ -1,0 +1,51 @@
+﻿<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">stay on top of it all..... </p>
+    <p>
+        <a href="https://wou-cs46x-resources.netlify.com/cs460/hw/hw5" 
+          target="_blank" class="btn btn-default btn-lg">the assignment &raquo;
+        </a>
+    </p>                <!-- bootstrap is *SO* screwy!!! -->
+        <!-- not gonna waste any more time styling this given the circumstances.....-->
+</div>
+
+<!-- this is the `index` for the whole site ..... the front page -->
+
+<div class="row">
+    <div class="col-md-1">
+        <!-- empty column for spacer -->
+    </div>
+
+
+    <div class="col-md-5">
+        <h2>my homeworks list</h2>
+        <p>
+            see everything you need to do!
+        </p>
+        <p>
+            <button class="btn btn-basic no-link-line">
+                @Html.ActionLink("all my homeworks", "Index", "Homework")
+            </button>
+        </p>
+    </div>
+
+
+    <div class="col-md-5">
+        <h2>add a new homework assignment</h2>
+        <p>
+            put your latest assignments on the list.....
+        </p>
+        <p>
+            <button class="btn btn-basic no-link-line">
+                @Html.ActionLink("add a homework", "Create", "Homework")
+            </button>
+        </p>
+    </div>
+
+
+    <div class="col-md-1">
+        <!-- empty column for spacer -->
+    </div>
+
+
+</div>

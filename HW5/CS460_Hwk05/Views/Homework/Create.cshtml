@@ -1,0 +1,166 @@
+﻿@model CS460_Hwk05.Models.Homework
+
+@{
+    ViewBag.Title = "add a new homework assignment!";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <!-- div box for whole form -->
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!--========================================================-->
+        <!--   `priority`   -->
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Priority,
+                htmlAttributes: new { @class = "control-Label col-md-2 my_label" })
+
+            <div class="col-md-10">
+                @Html.DropDownList("priority",
+                    (IEnumerable<SelectListItem>)ViewBag.PriorityList,
+                        "Priority?", new { @class = "form-control" })
+
+                <!-- so this only catches it *after* clicking `save` -->
+                @Html.ValidationMessageFor(model => model.Priority, "",
+                                        new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--========================================================-->
+        <!--   `DueDate`   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.DueDate,
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DueDate,
+                    new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.DueDate, "",
+                    new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--========================================================-->
+        <!--   `DueTime`   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.DueTime,
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DueTime,
+                    new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.DueTime, "",
+                    new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--========================================================-->
+        <!--   `Dept`   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dept,
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dept,
+                    new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.Dept, "",
+                    new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--=========================================================-->
+        <!--   `Course`   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Course,
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Course,
+                    new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.Course, "",
+                    new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--========================================================-->
+        <!--   `Assignment`   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Assignment,
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Assignment,
+                    new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.Assignment, "",
+                    new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--========================================================-->
+        <!--   `Notes`   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Notes,
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Notes,
+                    new
+                    { @class = "form-control", @rows = "9", @cols = "72" })
+
+                @Html.ValidationMessageFor(model => model.Notes, "",
+                    new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--========================================================-->
+        <!--   `Button!`   -->
+        <div class="form-group">
+            <!-- look up this first class..... -->
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>              <!-- bootstrap is really annoying at times..... -->
+        </div>
+
+        <!--========================================================-->
+    </div> <!-- end class  -->
+}
+
+<div class="bottom_links">
+    @Html.ActionLink("no ... go back to my homework list", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<!---------------------------------------------------------------------------------------
+so..... 
+    i went to work on formatting the `create` form a little more, well, creatively.....
+    and my 1st attempt -- with the `Priority` select/drop-down box -- 
+        just putting it in it's own row totally screwed up the alignment of the 
+        label to the box..... it looked ridiculous!
+
+    so i'll admit i just kinda gave up and went back to what was working and looking
+    decent -- i really don't have time to figure that out right now, with already being
+    a couple nights late on this assignment b/c of being sick and all that.....
+
+    plus while it says it'd be nice, in the lab sheet, it's not actually on the rubric,
+    anyway..... 
+
+    another thing to work with over Christmas break!   [=
+
+    i did make my colors nice, and all match, and complementary, and fixed up the links,
+    and stuff like that, at least -- plus spacing (vertical + horizontal) issues!   [=
+---------------------------------------------------------------------------------------->
