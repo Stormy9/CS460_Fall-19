@@ -1,0 +1,1 @@
+﻿Server=tcp:cs460-final-exam-server.database.windows.net,1433;Initial Catalog=CS460_Final_Exam_DB;Persist Security Info=False;User ID=stormy;Password=Possum011908;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

@@ -1,0 +1,65 @@
+﻿@model CS460_Final_Exam.Models.Event
+
+@{
+    ViewBag.Title = "See an Event's Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Person.FirstName)*@
+            Event Coordinator
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.FirstName) &nbsp;
+            @Html.DisplayFor(model => model.Person.LastName)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventTitle)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventStart)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventStart)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventTime)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDuration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventDuration) &nbsp; hours
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventLocation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |
+    @Html.ActionLink("Back to List of Current Events", "Index")
+</p>

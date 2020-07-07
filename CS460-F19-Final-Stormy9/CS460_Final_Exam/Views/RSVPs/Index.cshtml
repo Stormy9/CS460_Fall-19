@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CS460_Final_Exam.Models.RSVP>
+
+@{
+    ViewBag.Title = "Current RSVP's";
+}
+
+<h2>@ViewBag.Tigle</h2>
+
+<p>
+    @Html.ActionLink("Add an RSVP", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Event.EventTitle)*@
+            Event Title
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Person.FirstName)*@
+            Attendee
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event.EventTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Person.FirstName)&nbsp;
+            @Html.DisplayFor(modelItem => item.Person.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RsvpID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RsvpID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RsvpID })
+        </td>
+    </tr>
+}
+
+</table>
