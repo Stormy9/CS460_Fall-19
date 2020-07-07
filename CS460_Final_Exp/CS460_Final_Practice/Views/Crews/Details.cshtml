@@ -1,0 +1,42 @@
+﻿@model CS460_Final_Practice.Models.Crew
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Crew</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Astronaut.AstronautName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Astronaut.AstronautName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mission.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mission.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CrewID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

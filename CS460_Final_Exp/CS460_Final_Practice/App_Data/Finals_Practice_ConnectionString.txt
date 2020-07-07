@@ -1,0 +1,1 @@
+﻿Server=tcp:cs460-final-practice.database.windows.net,1433;Initial Catalog=CS460_Final_Practice_Azure;Persist Security Info=False;User ID=stormy;Password=Possum011908;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

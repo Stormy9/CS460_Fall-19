@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CS460_Final_Practice.Models.Crew>
+
+@{
+    ViewBag.Title = "Crews Listing";
+}
+
+<h2>Crews</h2>
+
+<p>
+    @Html.ActionLink("Create A New Crew", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Astronaut.AstronautName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mission.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Astronaut.AstronautName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mission.Designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CrewID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CrewID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CrewID })
+        </td>
+    </tr>
+}
+
+</table>
